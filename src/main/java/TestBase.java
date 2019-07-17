@@ -16,8 +16,7 @@ public class TestBase {
             props.load(getClass().getClassLoader().getResourceAsStream("config.properties"));
 
             //Rest Assured config
-            RestAssured.baseURI = props.getProperty("api.uri");
-            RestAssured.port = Integer.valueOf(props.getProperty("api.port"));
+            RestAssured.baseURI = "https://api.canthonailsviet.com";
         } catch (IOException ex) {
             ex.printStackTrace();
         }

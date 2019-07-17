@@ -1,19 +1,20 @@
 import io.restassured.response.Response;
 import models.Pet;
+import org.apache.http.HttpStatus;
 import org.hamcrest.Matchers;
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertEquals;
 
 public class PetsTest extends TestBase {
-    public void cho(){
-        
-    }
 //  Again easy assertion for status code in all Pets List
     @Test
     public void shouldHaveStatus200ForAllPetsList() {
-        REQUEST.get("/pets").then().statusCode(200);
+        Response response =  REQUEST.get("/skills");
+        Assert.assertEquals(HttpStatus.SC_OK,response.getStatusCode());
+       response.getBody().prettyPrint();
     }
 
     /*
